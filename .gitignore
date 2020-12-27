@@ -1,3 +1,17 @@
+.git/*
+env/
+venv/
+.venv
+.venv/
+.tests/
+.sent_emails/
+.sent_emails
+sent_emails/
+.vscode/
+vscode/settings.json
+
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
