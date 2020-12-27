@@ -1,5 +1,6 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render
 
 
 def post_list(requset):
-    return HttpResponse('<h1>Hello, world!</h1>')
+    n = ['Oleg', 'Masha', 'Olya']
+    return render(requset, 'blog/index.html', context={'names':n})
