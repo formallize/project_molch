@@ -2,15 +2,6 @@
     {% block content %}
     <div class="mb-5"><h1>Посты:</h1></div>
     {% for post in posts %}
-    <div class="card mt-4" style="width: 600px;">
-        <div class="card-header">
-          {{ post.date_pub }}
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">{{ post.title }}</h5>
-          <p class="card-text">{{ post.body }}</p>
-          <a href="{{ post.get_absolute_url }}" class="btn btn-primary">Перейти к посту</a>
-        </div>
-      </div>
+    {% include 'includes/card.html' %}
    {% endfor %}
 {% endblock %}
