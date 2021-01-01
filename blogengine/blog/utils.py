@@ -20,4 +20,8 @@ class ObjectListMixin:
 
     def get(self, request):
         obj = self.model.objects.all()
+
+        if self.model == 'Post':
+            obj = obj.ordering('-date_pub')
+
         return render(request, self.template, context={self.model.__name__.lower()+'s':obj})
