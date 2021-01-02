@@ -10,8 +10,8 @@ class TagForm(forms.ModelForm):
         fields = ['title', 'slug']
 
         widgets = {
-            'title':forms.TextInput(attrs={'class':'form-control'}),
-            'slug':forms.TextInput(attrs={'class':'form-control'})
+            'title':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Введите название тэга'}),
+            'slug':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Введите slug'})
         }
 
     def clean_slug(self):
@@ -30,8 +30,8 @@ class PostForm(forms.ModelForm):
         fields = ['title', 'slug', 'body', 'tag']
 
         widgets = {
-            'title':forms.TextInput(attrs={'class':'form-control'}),
-            'slug':forms.TextInput(attrs={'class':'form-control'}),
-            'body':forms.Textarea(attrs={'class':'form-control'}),
+            'title':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Введите названиеп поста'}),
+            'slug':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Введите slug'}),
+            'body':forms.Textarea(attrs={'class':'form-control', 'placeholder':'Введите текст поста'}),
             'tag':forms.CheckboxSelectMultiple(attrs={'style': {'list-style-type':'none'}})
         }

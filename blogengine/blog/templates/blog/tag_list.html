@@ -7,7 +7,12 @@
 {% block content %}
     <h1 class="mb-5">Tags:</h1>
     {% for tag in tags %}
-        <a href="{{ tag.get_absolute_url }}"><h3>{{ tag.title }}</h3></a>
+        <div class="card border-primary mb-3" style="max-width: 500px;">
+            <div class="card-body text-primary">
+              <h3 class="card-title">{{ tag.title|title }}</h3>
+              <a href="{{ tag.get_absolute_url }}" class="btn btn-primary">Смотреть посты</a>
+            </div>
+        </div>
         
     {% endfor %}
 {% endblock %}

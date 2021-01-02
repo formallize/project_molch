@@ -1,5 +1,3 @@
-from django.core.exceptions import RequestDataTooBig
-from django.shortcuts import redirect
 from django.views.generic import View
 from .forms import PostForm, TagForm
 

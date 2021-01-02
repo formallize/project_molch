@@ -15,7 +15,6 @@ class Post(models.Model):
         return '{}'.format(self.title)
     
     
-
 class Tag(models.Model):
     title = models.CharField(max_length=50)
     slug = models.SlugField(max_length=50, unique=True)

@@ -48,6 +48,6 @@ class ObjectCreateMixin:
                     return redirect('post_list')
             else:
                 new_tag = bound_form.save()
-                return redirect(new_tag)
+                return redirect('tag_list')
 
         return render(request, self.template, context={'form': bound_form})
