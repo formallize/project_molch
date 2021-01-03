@@ -8,6 +8,9 @@ class TagForm(forms.ModelForm):
     class Meta:
         model = Tag
         fields = ['title', 'slug']
+        labels = {
+            'title':'Название'
+        }
 
         widgets = {
             'title':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Введите название тэга'}),
@@ -28,6 +31,11 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['title', 'slug', 'body', 'tag']
+        labels = {
+            'title': 'Название поста',
+            'body': 'Текст поста',
+            'tag':'Тэги поста'
+        }
 
         widgets = {
             'title':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Введите названиеп поста'}),

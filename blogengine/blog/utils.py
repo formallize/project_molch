@@ -10,6 +10,7 @@ default_variables = [
 ]
 
 default_variables_create = [
+    'model = None',
     'form = None',
     'template = None'
 ]
@@ -26,7 +27,7 @@ class ObjectListMixin:
 
     def get(self, request):
         if self.model == Post:
-            obj = self.model.objects.all().order_by('-date_pub')
+            obj = self.model.objects.all().order_by('-id')
         else:
             obj = self.model.objects.all()
 
@@ -44,7 +45,7 @@ class ObjectCreateMixin:
 
         if bound_form.is_valid():
             bound_form.save()
-            return redirect(self.model.__name__.lower()+'_list')
+            return redirect(reverse(self.model.__name__.lower()+'_list'))
         return render(request, self.template, context={'form': bound_form})
 
 class ObjectUpdateMixin:
