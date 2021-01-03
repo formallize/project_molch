@@ -26,12 +26,8 @@ class ObjectListMixin:
     default_variables
 
     def get(self, request):
-        if self.model == Post:
             obj = self.model.objects.all().order_by('-id')
-        else:
-            obj = self.model.objects.all()
-
-        return render(request, self.template, context={self.model.__name__.lower()+'s':obj})
+            return render(request, self.template, context={self.model.__name__.lower()+'s':obj})
 
 class ObjectCreateMixin:
     default_variables_create
