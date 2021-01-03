@@ -12,7 +12,7 @@
             <div class="form-group">
                 {% if field.errors %}
                     <div class="alert alert-danger">
-                        {{ field.errors }}
+                       <strong>{{ field.errors }}</strong> 
                     </div>
                 {% endif %}
 
@@ -21,6 +21,6 @@
             </div>
         {% endfor %}
 
-        <button type="submit" class="btn btn-primary mt-5"> Создать Тэг </button>
+        <button type="submit" class="btn btn-primary mb-5"> Создать Тэг </button>
     </form>
 {% endblock %}

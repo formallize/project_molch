@@ -7,8 +7,11 @@
 {% block content %}
     <h1 class="mb-5">Posts with "{{ tag.title|title }}" tag:</h1>
 
+    {% if tag.posts.count %}
     {% for post in tag.posts.all %}
         {% include 'includes/card.html' %}
     {% endfor %}
-
+    {% else %}
+        <h3>Постов тэга "{{ tag.title }}" нет.</h3>
+    {% endif %}
 {% endblock %}

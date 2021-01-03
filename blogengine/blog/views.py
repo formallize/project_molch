@@ -28,3 +28,8 @@ class TagCreate(ObjectCreateMixin, View):
 class PostCreate(ObjectCreateMixin, View):
     form = PostForm
     template = 'blog/post_create.html'
+
+class TagUpdate(ObjectUpdateMixin, View):
+    model = Tag
+    model_form = TagForm
+    template = 'blog/tag_update.html'

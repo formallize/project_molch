@@ -33,5 +33,5 @@ class PostForm(forms.ModelForm):
             'title':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Введите названиеп поста'}),
             'slug':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Введите slug'}),
             'body':forms.Textarea(attrs={'class':'form-control', 'placeholder':'Введите текст поста'}),
-            'tag':forms.CheckboxSelectMultiple(attrs={'style': {'list-style-type':'none'}})
+            'tag':forms.CheckboxSelectMultiple(attrs={'class':'checkbox_tag'})
         }

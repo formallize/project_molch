@@ -24,3 +24,6 @@ class Tag(models.Model):
 
     def get_absolute_url(self):
         return reverse('tag_detail', kwargs={'slug':self.slug})
+
+    def get_update_url(self):
+        return reverse('tag_update', kwargs={'slug':self.slug})
