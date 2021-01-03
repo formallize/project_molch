@@ -1,0 +1,15 @@
+<div class="card mt-4" style="width: 600px;">
+    
+    <div class="card-body">
+    <h5 class="card-title"><b>{{ tag.title|title }}</b></h5>
+    <a href="{{ tag.get_absolute_url }}" class="btn btn-primary">Посмотреть посты</a>
+    <a href="{{ tag.get_update_url }}" class="btn btn-outline-warning">Редактировать</a>
+    <a href="{{ tag.get_delete_url }}" class="btn btn-outline-danger">Удалить</a>
+    </div>
+    <div class="card-footer text-muted">
+        Посты:
+        {% for post in tag.posts.all %}
+            <a href="{{ post.get_absolute_url }}">{{ post.title|title }}</a>
+        {% endfor %}
+    </div>
+</div>

@@ -3,7 +3,7 @@
     {{ post.date_pub }}
     </div>
     <div class="card-body">
-    <h5 class="card-title">{{ post.title }}</h5>
+    <h5 class="card-title"><b>{{ post.title|title }}</b></h5>
     <p class="card-text">{{ post.body }}</p>
     <a href="{{ post.get_absolute_url }}" class="btn btn-primary">Перейти к посту</a>
     <a href="{{ post.get_update_url }}" class="btn btn-outline-warning">Редактировать</a>

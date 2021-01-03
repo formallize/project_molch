@@ -44,11 +44,7 @@ class ObjectCreateMixin:
 
         if bound_form.is_valid():
             bound_form.save()
-            if self.form == PostForm:
-                return redirect('post_list')
-            else:
-                return redirect('tag_list')
-
+            return redirect(self.model.__name__.lower()+'_list')
         return render(request, self.template, context={'form': bound_form})
 
 class ObjectUpdateMixin:
@@ -67,7 +63,7 @@ class ObjectUpdateMixin:
 
         if bound_form.is_valid():
             new_tag = bound_form.save()
-            return redirect(new_tag)
+            return redirect(reverse(self.model.__name__.lower()+'_list'))
         return render(request, self.template, context={'form':bound_form, self.model.__name__.lower():obj})
 
 class ObjectDeleteMixin:
@@ -80,7 +76,4 @@ class ObjectDeleteMixin:
     def post(self, request, slug):
         obj = self.model.objects.get(slug__iexact=slug)
         obj.delete()
-        if self.model == Post:
-            return redirect(reverse('post_list'))
-        else:
-            return redirect(reverse('tag_list'))
+        return redirect(reverse(self.model.__name__.lower()+'_list'))

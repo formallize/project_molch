@@ -1,20 +1,12 @@
 {% extends 'blog/base_blog.html' %}
 
 {% block title %}
-    Tags list - {{ block.super }}
+    Список тэгов - {{ block.super }}
 {% endblock %}
 
 {% block content %}
-    <h1 class="mb-5">Tags:</h1>
+    <h1 class="mb-5">Тэги:</h1>
     {% for tag in tags %}
-        <div class="card border-primary mb-3" style="max-width: 400px;">
-            <div class="card-body text-primary" style="text-align: center;">
-              <h3 class="card-title">{{ tag.title|title }}</h3>
-              <a href="{{ tag.get_absolute_url }}" class="btn btn-outline-primary">Смотреть посты</a>
-              <a href="{{ tag.get_update_url }}" class="btn btn-outline-warning">Изменить</a>
-              <a href="{{ tag.get_delete_url }}" class="btn btn-outline-danger">Удалить</a>
-            </div>
-        </div>
-        
+        {% include 'includes/tag_card.html' %}
     {% endfor %}
 {% endblock %}
