@@ -69,3 +69,18 @@ class ObjectUpdateMixin:
             new_tag = bound_form.save()
             return redirect(new_tag)
         return render(request, self.template, context={'form':bound_form, self.model.__name__.lower():obj})
+
+class ObjectDeleteMixin:
+    default_variables
+
+    def get(self, request, slug):
+        obj = self.model.objects.get(slug__iexact=slug)
+        return render(request, self.template, context={self.model.__name__.lower():obj})
+
+    def post(self, request, slug):
+        obj = self.model.objects.get(slug__iexact=slug)
+        obj.delete()
+        if self.model == Post:
+            return redirect(reverse('post_list'))
+        else:
+            return redirect(reverse('tag_list'))

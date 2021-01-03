@@ -7,6 +7,7 @@
     <p class="card-text">{{ post.body }}</p>
     <a href="{{ post.get_absolute_url }}" class="btn btn-primary">Перейти к посту</a>
     <a href="{{ post.get_update_url }}" class="btn btn-outline-warning">Редактировать</a>
+    <a href="{{ post.get_delete_url }}" class="btn btn-outline-danger">Удалить</a>
     </div>
     <div class="card-footer text-muted">
         Тэги:
