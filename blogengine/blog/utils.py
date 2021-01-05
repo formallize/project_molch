@@ -9,7 +9,7 @@ default_variables = [
     'template = None'
 ]
 
-default_variables_create = [
+default_variables_form = [
     'model = None',
     'form = None',
     'template = None'
@@ -20,7 +20,7 @@ class ObjectDetailMixin:
 
     def get(self, request, slug):
         obj = get_object_or_404(self.model, slug__iexact=slug)
-        return render(request, self.template, context={self.model.__name__.lower():obj})
+        return render(request, self.template, context={self.model.__name__.lower():obj, 'admin_object': obj, 'detail': True})
 
 class ObjectListMixin:
     default_variables
@@ -30,7 +30,7 @@ class ObjectListMixin:
             return render(request, self.template, context={self.model.__name__.lower()+'s':obj})
 
 class ObjectCreateMixin:
-    default_variables_create
+    default_variables_form
  
     def get(self, request):
         form = self.form()
@@ -45,9 +45,7 @@ class ObjectCreateMixin:
         return render(request, self.template, context={'form': bound_form})
 
 class ObjectUpdateMixin:
-    model = None
-    model_form = None
-    template = None
+    default_variables_form
 
     def get(self, request, slug):
         obj = self.model.objects.get(slug__iexact=slug)
