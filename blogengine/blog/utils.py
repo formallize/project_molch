@@ -1,4 +1,3 @@
-from .forms import PostForm, TagForm
 from django.shortcuts import redirect, render
 from django.shortcuts import get_object_or_404
 
@@ -57,7 +56,7 @@ class ObjectUpdateMixin:
         bound_form = self.model_form(request.POST, instance=obj)
 
         if bound_form.is_valid():
-            new_tag = bound_form.save()
+            bound_form.save()
             return redirect(reverse(self.model.__name__.lower()+'_list'))
         return render(request, self.template, context={'form':bound_form, self.model.__name__.lower():obj})
 
